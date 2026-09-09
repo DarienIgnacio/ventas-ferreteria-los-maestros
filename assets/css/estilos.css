@@ -1,0 +1,268 @@
+/* 1. Variables Globales */
+:root {
+  --color-primario: #0d47a1;          /* Azul corporativo ferretería */
+  --color-primario-oscuro: #002171;   /* Azul oscuro barras y pie */
+  --color-secundario: #f57f17;        /* Amarillo/Naranja construcción */
+  --color-acento: #ffb300;            /* Acento enfocado */
+  --color-texto: #1a202c;
+  --color-texto-suave: #4a5568;
+  --color-fondo: #f7fafc;
+  --color-superficie: #ffffff;
+  --color-borde: #e2e8f0;
+  --fuente-base: Arial, Helvetica, sans-serif;
+  --radio: 0.5rem;
+  --sombra: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+  --ancho-contenido: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Base y Tipografía */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  font-family: var(--fuente-base);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-primario);
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+main {
+  width: min(100% - 2rem, var(--ancho-contenido));
+  margin-inline: auto;
+  padding-block: 2rem 4rem;
+}
+
+section + section {
+  margin-top: 3rem;
+}
+
+/* 3. Estructura de Navegación y Header */
+.cabecera-sitio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem max(1rem, calc((100% - var(--ancho-contenido)) / 2));
+  color: #ffffff;
+  background: var(--color-primario-oscuro);
+}
+
+.marca {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.boton-menu {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: var(--color-primario);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu.menu-abierto {
+  display: flex;
+}
+
+.menu a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  color: #ffffff;
+  border-radius: 0.35rem;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  background: var(--color-secundario);
+}
+
+@media (min-width: 768px) {
+  .cabecera-sitio {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .boton-menu {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* 4. Componentes y Tarjetas de Productos */
+.etiqueta {
+  margin-bottom: 0.25rem;
+  color: var(--color-secundario);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tarjeta,
+.mensaje-confirmacion,
+.formulario fieldset {
+  padding: 1.5rem;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.grilla-tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .grilla-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .grilla-tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.boton, button {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  background: var(--color-primario);
+  border: 0;
+  border-radius: 0.35rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover, button:hover {
+  background: var(--color-primario-oscuro);
+}
+
+/* 5. Estilos de Alertas de Stock */
+.aviso-cupos {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.actividad-completa {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* 6. Tablas y Formularios */
+.tabla-contenedor {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-superficie);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--color-borde);
+}
+
+thead {
+  color: #ffffff;
+  background: var(--color-primario);
+}
+
+.formulario {
+  display: grid;
+  gap: 1rem;
+  max-width: 42rem;
+}
+
+.formulario fieldset {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 0.4rem;
+  font: inherit;
+}
+
+input:required, select:required, textarea:required {
+  border-left: 0.3rem solid var(--color-primario);
+}
+
+/* 7. Footer */
+.pie-sitio {
+  padding: 1.5rem max(1rem, calc((100% - var(--ancho-contenido)) / 2));
+  color: #ffffff;
+  background: var(--color-primario-oscuro);
+  text-align: center;
+}
+
+.salto-contenido {
+  position: absolute;
+  padding: 0.6rem 1rem;
+  color: #ffffff;
+  background: var(--color-primario-oscuro);
+  transform: translateY(-150%);
+}
+
+.salto-contenido:focus {
+  transform: translateY(0);
+}
