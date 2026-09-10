@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <a class="marca" href="index.html">Ferretería Los Maestros</a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal" aria-controls="menu-principal" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html">Iniciar Sesión</a>
+            <a href="registro.html" aria-current="page">Registrarse</a>
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <header class="encabezado-pagina">
+            <p class="etiqueta">Crear Cuenta</p>
+            <h1>Registro de Usuario</h1>
+        </header>
+
+        <form id="form-registro" class="formulario">
+            <fieldset>
+                <legend>Datos Personales</legend>
+
+                <label for="run">RUN (sin puntos ni guion, ej: 19011022K)</label>
+                <input id="run" name="run" type="text" minlength="7" maxlength="9" required>
+
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" maxlength="50" required>
+
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" name="apellidos" type="text" maxlength="100" required>
+
+                <label for="correo">Correo Electrónico (@duoc.cl, @profesor.duoc.cl o @gmail.com)</label>
+                <input id="correo" name="correo" type="email" maxlength="100" required>
+
+                <label for="contrasena">Contraseña (4 a 10 caracteres)</label>
+                <input id="contrasena" name="contrasena" type="password" minlength="4" maxlength="10" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ubicación</legend>
+
+                <label for="region">Región</label>
+                <select id="region" name="region" required>
+                    <option value="">Selecciona una región</option>
+                    <option value="coquimbo">Región de Coquimbo</option>
+                    <option value="rm">Región Metropolitana</option>
+                </select>
+
+                <label for="comuna">Comuna</label>
+                <select id="comuna" name="comuna" required>
+                    <option value="">Selecciona una comuna</option>
+                    <option value="laserena">La Serena</option>
+                    <option value="coquimbo">Coquimbo</option>
+                </select>
+
+                <label for="direccion">Dirección de despacho u obra</label>
+                <input id="direccion" name="direccion" type="text" maxlength="300" required>
+            </fieldset>
+
+            <button type="submit">Registrar Cuenta</button>
+        </form>
+    </main>
+
+    <footer class="pie-sitio">
+        <p><strong>Ferretería Los Maestros</strong></p>
+        <address>Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a></address>
+        <p><small>Proyecto académico · Desarrollo FullStack II (DSY1104)</small></p>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/validaciones.js"></script>
+</body>
+</html>
