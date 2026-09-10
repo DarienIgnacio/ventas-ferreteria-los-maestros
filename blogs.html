@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <a class="marca" href="index.html">Ferretería Los Maestros</a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal" aria-controls="menu-principal" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="blogs.html" aria-current="page">Blogs</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html">Iniciar Sesión</a>
+            <a href="registro.html">Registrarse</a>
+            <a href="carrito.html">🛒 Carrito (<span id="contador-carrito">0</span>)</a>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <header class="encabezado-pagina">
+            <p class="etiqueta">Novedades y Consejos</p>
+            <h1>Noticias de Construcción</h1>
+        </header>
+
+        <section class="grilla-tarjetas">
+            <article class="tarjeta">
+                <h3>Caso Curioso #1: La Mezcla Perfecta de Mortero</h3>
+                <p>Aprende técnicas para optimizar la resistencia en pegado de cerámicas.</p>
+                <a href="detalle-blog-1.html" class="boton">Leer Artículo</a>
+            </article>
+
+            <article class="tarjeta">
+                <h3>Caso Curioso #2: Cuidados de Herramientas Eléctricas</h3>
+                <p>Consejos prácticos para extender la vida útil de tus taladros y esmeriles.</p>
+                <a href="detalle-blog-2.html" class="boton">Leer Artículo</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <p><strong>Ferretería Los Maestros</strong></p>
+        <address>Contacto: <a href="mailto:contacto@losmaestros.cl">contacto@losmaestros.cl</a></address>
+        <p><small>Proyecto académico · Desarrollo FullStack II (DSY1104)</small></p>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
