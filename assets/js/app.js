@@ -79,8 +79,79 @@ function mostrarProductos(lista) {
   }
 }
 
+// Filtros
+if (botonTodos) {
+  botonTodos.addEventListener("click", () => mostrarProductos(obtenerProductos()));
+}
+
+if (botonDisponibles) {
+  botonDisponibles.addEventListener("click", () => {
+    const todos = obtenerProductos();
+    const disponibles = todos.filter((p) => p.stock > 0);
+    mostrarProductos(disponibles);
+  });
+}
+
 // Inicializar Catálogo
 if (contenedorProductos) {
   mostrarProductos(obtenerProductos());
 }
 
+// Vista Detalle de Producto
+const contenedorDetalle = document.querySelector("#detalle-producto-container");
+
+if (contenedorDetalle) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const codigoProducto = urlParams.get("codigo");
+  const listaProductos = obtenerProductos();
+  const productoEncontrado = listaProductos.find(p => p.codigo === codigoProducto);
+
+  if (productoEncontrado) {
+    contenedorDetalle.replaceChildren();
+
+    const tarjeta = document.createElement("article");
+    tarjeta.classList.add("tarjeta");
+
+    const etiqueta = document.createElement("p");
+    etiqueta.classList.add("etiqueta");
+    etiqueta.textContent = productoEncontrado.categoria;
+
+    const titulo = document.createElement("h1");
+    titulo.textContent = productoEncontrado.nombre;
+
+    const codigo = document.createElement("p");
+    codigo.innerHTML = `<strong>Código:</strong> ${productoEncontrado.codigo}`;
+
+    const desc = document.createElement("p");
+    desc.textContent = productoEncontrado.descripcion || "Sin descripción disponible.";
+
+    const precio = document.createElement("p");
+    precio.innerHTML = `<strong>Precio:</strong> $${productoEncontrado.precio.toLocaleString("es-CL")}`;
+
+    const stock = document.createElement("p");
+    stock.innerHTML = `<strong>Stock disponible:</strong> ${productoEncontrado.stock} unidades`;
+
+    const botonAgregar = document.createElement("button");
+    botonAgregar.type = "button";
+    botonAgregar.textContent = "Añadir al carrito";
+    botonAgregar.disabled = productoEncontrado.stock === 0;
+    botonAgregar.addEventListener("click", () => agregarAlCarrito(productoEncontrado));
+
+    const botonVolver = document.createElement("a");
+    botonVolver.href = "productos.html";
+    botonVolver.classList.add("boton");
+    botonVolver.style.marginLeft = "0.5rem";
+    botonVolver.textContent = "Volver al catálogo";
+
+    tarjeta.appendChild(etiqueta);
+    tarjeta.appendChild(titulo);
+    tarjeta.appendChild(codigo);
+    tarjeta.appendChild(desc);
+    tarjeta.appendChild(precio);
+    tarjeta.appendChild(stock);
+    tarjeta.appendChild(botonAgregar);
+    tarjeta.appendChild(botonVolver);
+
+    contenedorDetalle.appendChild(tarjeta);
+  }
+}
