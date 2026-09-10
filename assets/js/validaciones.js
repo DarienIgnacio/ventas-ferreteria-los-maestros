@@ -1,6 +1,18 @@
 const formRegistro = document.querySelector("#form-registro");
 const formLogin = document.querySelector("#form-login");
 
+// Validar RUN chileno sin puntos ni guion (ej: 19011022K)
+function validarRUN(run) {
+  const regexRUN = /^[0-9]{7,8}[0-9kK]{1}$/;
+  return regexRUN.test(run);
+}
+
+// Validar correo restringido a dominios @duoc.cl, @profesor.duoc.cl o @gmail.com
+function validarCorreo(correo) {
+  const regexCorreo = /^[\w-\.]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+  return regexCorreo.test(correo);
+}
+
 // Validación Registro
 if (formRegistro) {
   formRegistro.addEventListener("submit", (e) => {
@@ -65,6 +77,32 @@ if (formLogin) {
   });
 }
 
+// Selector dinámico Región / Comuna
+const selectRegion = document.querySelector("#region");
+const selectComuna = document.querySelector("#comuna");
 
+const comunasPorRegion = {
+  coquimbo: ["La Serena", "Coquimbo", "Ovalle", "Vicuña"],
+  rm: ["Santiago", "Maipú", "Providencia", "Puente Alto", "Las Condes"]
+};
 
+if (selectRegion && selectComuna) {
+  selectRegion.addEventListener("change", (e) => {
+    const regionSeleccionada = e.target.value;
+    selectComuna.replaceChildren();
 
+    const opcionDefecto = document.createElement("option");
+    opcionDefecto.value = "";
+    opcionDefecto.textContent = "Selecciona una comuna";
+    selectComuna.appendChild(opcionDefecto);
+
+    if (regionSeleccionada && comunasPorRegion[regionSeleccionada]) {
+      comunasPorRegion[regionSeleccionada].forEach((comuna) => {
+        const opcion = document.createElement("option");
+        opcion.value = comuna.toLowerCase().replace(/\s+/g, "");
+        opcion.textContent = comuna;
+        selectComuna.appendChild(opcion);
+      });
+    }
+  });
+}
