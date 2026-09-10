@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios | Administración</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <a class="marca" href="admin-home.html">Módulo Administración</a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal" aria-controls="menu-principal" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Navegación del Administrador">
+            <a href="admin-home.html">Dashboard</a>
+            <a href="admin-productos.html">Gestión Productos</a>
+            <a href="admin-usuarios.html" aria-current="page">Gestión Usuarios</a>
+            <a href="index.html">Volver a la Tienda</a>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <header class="encabezado-pagina">
+            <p class="etiqueta">Control de Accesos (RBAC)</p>
+            <h1>Mantenedor de Usuarios</h1>
+        </header>
+
+        <section class="tarjeta">
+            <h2>Crear / Asignar Rol a Usuario</h2>
+            <form id="form-admin-usuario" class="formulario">
+                <fieldset>
+                    <legend>Datos del Usuario</legend>
+
+                    <label for="usr-run">RUN (sin puntos ni guion)</label>
+                    <input id="usr-run" name="run" type="text" minlength="7" maxlength="9" required>
+
+                    <label for="usr-nombre">Nombre Completo</label>
+                    <input id="usr-nombre" name="nombre" type="text" maxlength="150" required>
+
+                    <label for="usr-correo">Correo Electrónico</label>
+                    <input id="usr-correo" name="correo" type="email" maxlength="100" required>
+
+                    <label for="usr-rol">Tipo / Perfil de Usuario</label>
+                    <select id="usr-rol" name="rol" required>
+                        <option value="">Selecciona un rol</option>
+                        <option value="Administrador">Administrador (Acceso Total)</option>
+                        <option value="Vendedor">Vendedor (Inventario y Ventas)</option>
+                        <option value="Cliente">Cliente / Contratista (Solo Tienda)</option>
+                    </select>
+                </fieldset>
+
+                <button type="submit">Guardar Usuario</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-usuarios">
+            <h2 id="titulo-usuarios">Usuarios Registrados en el Sistema</h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>RUN</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol Asignado</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>19011022K</td>
+                            <td>Adrián Flores</td>
+                            <td>adrian@duoc.cl</td>
+                            <td>Administrador</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>184567891</td>
+                            <td>Benjamín Molina</td>
+                            <td>benjamin@duoc.cl</td>
+                            <td>Vendedor</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>176543210</td>
+                            <td>Darien Urrutia</td>
+                            <td>darien@duoc.cl</td>
+                            <td>Cliente / Contratista</td>
+                            <td>Activo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <p><strong>Ferretería Los Maestros · Módulo Administrativo</strong></p>
+        <p><small>Proyecto académico · Desarrollo FullStack II (DSY1104)</small></p>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>
