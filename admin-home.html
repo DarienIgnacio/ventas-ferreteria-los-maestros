@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Ferretería Los Maestros</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <a class="marca" href="admin-home.html">Módulo Administración</a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal" aria-controls="menu-principal" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Navegación del Administrador">
+            <a href="admin-home.html" aria-current="page">Dashboard</a>
+            <a href="admin-productos.html">Gestión Productos</a>
+            <a href="admin-usuarios.html">Gestión Usuarios</a>
+            <a href="index.html">Volver a la Tienda</a>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <header class="encabezado-pagina">
+            <p class="etiqueta">Rol: Administrador / Dueño</p>
+            <h1>¡Hola, Administrador!</h1>
+            <p>Bienvenido al panel de gestión integral de Ferretería Los Maestros.</p>
+        </header>
+
+        <section class="grilla-tarjetas">
+            <article class="tarjeta">
+                <h3>Mantenedor de Productos</h3>
+                <p>Crea, edita o revisa el inventario de las más de 800 referencias y configura las alertas de stock crítico.</p>
+                <a href="admin-productos.html" class="boton">Administrar Productos</a>
+            </article>
+
+            <article class="tarjeta">
+                <h3>Mantenedor de Usuarios</h3>
+                <p>Gestiona las cuentas del sistema, activa nuevos clientes y asigna roles (Administrador, Vendedor, Cliente).</p>
+                <a href="admin-usuarios.html" class="boton">Administrar Usuarios</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <p><strong>Ferretería Los Maestros · Módulo Administrativo</strong></p>
+        <p><small>Proyecto académico · Desarrollo FullStack II (DSY1104)</small></p>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>

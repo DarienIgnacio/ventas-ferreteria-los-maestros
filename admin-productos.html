@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos | Administración</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido-principal">Ir al contenido</a>
+
+    <header class="cabecera-sitio">
+        <a class="marca" href="admin-home.html">Módulo Administración</a>
+        <button id="boton-menu" class="boton-menu" type="button" aria-label="Abrir o cerrar menú principal" aria-controls="menu-principal" aria-expanded="false">
+            <span aria-hidden="true">☰</span>
+        </button>
+
+        <nav id="menu-principal" class="menu" aria-label="Navegación del Administrador">
+            <a href="admin-home.html">Dashboard</a>
+            <a href="admin-productos.html" aria-current="page">Gestión Productos</a>
+            <a href="admin-usuarios.html">Gestión Usuarios</a>
+            <a href="index.html">Volver a la Tienda</a>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <header class="encabezado-pagina">
+            <p class="etiqueta">Inventario y Stock</p>
+            <h1>Mantenedor de Productos</h1>
+        </header>
+
+        <section class="tarjeta">
+            <h2>Crear / Editar Producto</h2>
+            <form id="form-producto" class="formulario">
+                <fieldset>
+                    <legend>Información del Producto</legend>
+
+                    <label for="prod-codigo">Código de Producto (mínimo 3 caracteres)</label>
+                    <input id="prod-codigo" name="codigo" type="text" minlength="3" required>
+
+                    <label for="prod-nombre">Nombre del Producto</label>
+                    <input id="prod-nombre" name="nombre" type="text" maxlength="100" required>
+
+                    <label for="prod-categoria">Categoría</label>
+                    <select id="prod-categoria" name="categoria" required>
+                        <option value="">Selecciona una categoría</option>
+                        <option value="Mat. Construcción">Materiales de Construcción</option>
+                        <option value="Herramientas">Herramientas Manuales / Eléctricas</option>
+                        <option value="Gasfitería">Gasfitería</option>
+                        <option value="Electricidad">Electricidad</option>
+                    </select>
+
+                    <label for="prod-precio">Precio Venta (CLP)</label>
+                    <input id="prod-precio" name="precio" type="number" min="0" step="any" required>
+
+                    <label for="prod-stock">Stock Actual (unidades enteras)</label>
+                    <input id="prod-stock" name="stock" type="number" min="0" step="1" required>
+
+                    <label for="prod-stock-critico">Stock Crítico / Umbral de Reposición</label>
+                    <input id="prod-stock-critico" name="stockCritico" type="number" min="0" step="1" required>
+
+                    <label for="prod-descripcion">Descripción Corta (opcional)</label>
+                    <textarea id="prod-descripcion" name="descripcion" rows="3" maxlength="500"></textarea>
+                </fieldset>
+
+                <button type="submit">Guardar Producto</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-inventario">
+            <h2 id="titulo-inventario">Listado de Productos en Inventario</h2>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Stock Crítico</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-admin-productos">
+                        <tr>
+                            <td>MC001</td>
+                            <td>Cemento Polpaico gris 25 kg</td>
+                            <td>Mat. Construcción</td>
+                            <td>$5.990</td>
+                            <td>80</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>MC002</td>
+                            <td>Cemento Melón blanco 25 kg</td>
+                            <td>Mat. Construcción</td>
+                            <td>$7.490</td>
+                            <td class="aviso-cupos">4 (Alerta)</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-sitio">
+        <p><strong>Ferretería Los Maestros · Módulo Administrativo</strong></p>
+        <p><small>Proyecto académico · Desarrollo FullStack II (DSY1104)</small></p>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>
